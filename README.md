@@ -24,3 +24,7 @@
 4. Click the **Load unpacked** button and select the cloned repository directory.
 5. The extension is not available in chrome browser
 
+
+### Usage
+1. Open Youtube and click on any video link
+2. If ad is loaded, the page automatically reloads until the video is played
