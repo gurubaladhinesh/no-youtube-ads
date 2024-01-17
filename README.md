@@ -8,7 +8,6 @@
 
 - **Ad-Free Experience:** Enjoy YouTube videos without being interrupted by advertisements.
 - **Automated Reload:** The extension automatically reloads the page when an ad is detected, allowing you to skip the ad and continue watching your content.
-- **Customizable Settings:** Adjust the extension settings to suit your preferences.
 
 ## How to Use "No YouTube Ads"
 
