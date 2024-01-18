@@ -1,17 +1,37 @@
-function init() {
-  const videoTags = document.getElementsByTagName("video");
-  if (videoTags != undefined && videoTags.length == 1) {
+function init(element) {
+  if (element) {
     adCheck();
-    videoTags[0].addEventListener("play", adCheck)
-    
+    element.addEventListener("play", adCheck);
   }
 }
 
-function adCheck(){
-    const player = document.getElementById("movie_player");
-    if (player != undefined && player.classList.value.includes(" ad-showing")) {
-      window.location.reload();
-    }
+function adCheck() {
+  const player = document.getElementById("movie_player");
+  if (player != undefined && player.classList.value.includes(" ad-showing")) {
+    window.location.reload();
+  }
 }
 
-window.addEventListener ("load", init);
+function waitForElementToExist(selector) {
+  return new Promise((resolve) => {
+    if (document.querySelector(selector)) {
+      return resolve(document.querySelector(selector));
+    }
+
+    const observer = new MutationObserver(() => {
+      if (document.querySelector(selector)) {
+        resolve(document.querySelector(selector));
+        observer.disconnect();
+      }
+    });
+
+    observer.observe(document.body, {
+      subtree: true,
+      childList: true,
+    });
+  });
+}
+
+waitForElementToExist("video").then((element) => {
+  init(element);
+});
